@@ -13,6 +13,16 @@ export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
 
+# Custom prompt
+export PS1="\u@${HOSTNAME%%.*} \w 👍  "
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~} ${HOSTNAME%%.*}\007"'
+
+# Use ninja
+export GYP_GENERATORS=ninja
+
+# Vagrant dir
+export VAGRANT_CWD=~/gh/vagrant
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
@@ -21,3 +31,10 @@ shopt -s histappend
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
+
+# Increase number of processes to 2048
+# sometimes stops node from exploding
+ulimit -n 2048
+
+# Ruby
+eval "$(rbenv init -)"

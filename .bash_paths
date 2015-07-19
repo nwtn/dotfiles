@@ -22,6 +22,7 @@ declare -a dirs_to_append=(
     "$HOME/bin"
     "$HOME/npm"
     "$HOME/npm/bin"
+    "$HOME/.rbenv/bin"
 )
 
 # Prepend directories to PATH

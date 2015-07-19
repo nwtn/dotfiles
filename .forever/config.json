@@ -1,0 +1,17 @@
+{
+  "root": "/Users/dnewton/.forever",
+  "pidPath": "/Users/dnewton/.forever/pids",
+  "sockPath": "/Users/dnewton/.forever/sock",
+  "loglength": 100,
+  "logstream": false,
+  "columns": [
+    "uid",
+    "command",
+    "script",
+    "forever",
+    "pid",
+    "id",
+    "logfile",
+    "uptime"
+  ]
+}

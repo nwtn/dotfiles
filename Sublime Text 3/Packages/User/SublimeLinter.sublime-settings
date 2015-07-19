@@ -1,0 +1,23 @@
+{
+
+    // If true, when the file is saved any errors will appear in a popup list
+    "sublimelinter_popup_errors_on_save": true,
+
+    "jshint_options":
+    {
+        // To fix column positions for JSHint errors you may want to add `"indent": 1` to your
+        // **User** "jshint_options". This issue affects users with tabs for indentation.
+        // This fix was reverted due to a conflict with using the `"white": true` option.
+        // "indent": 1,
+        "browser": true,
+        "evil": true,
+        "multistr": true,
+        "regexdash": true,
+        "sub": true,
+        "trailing": true,
+        "wsh": true
+    },
+
+    "sublimelinter_gutter_marks": true
+
+}

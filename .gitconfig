@@ -1,0 +1,32 @@
+[user]
+	name = David Newton
+	email = david@davidnewton.ca
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[init]
+	templatedir = /Users/dnewton/.git_template
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[push]
+	default = simple
+[diff]
+	noprefix = false
+[credential]
+	helper = osxkeychain
+[core]
+	autocrlf = false
+	filemode = false
+[color]
+	ui = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[alias]
+	unadd = reset HEAD
+	uncommit = reset --soft HEAD^
+	heckit = reset --hard HEAD

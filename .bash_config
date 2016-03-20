@@ -1,40 +1,83 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 # bash_config
 
-# Make vim the default editor
+## Resource allocation
+
+### Increase number of processes to 2048
+### sometimes stops node from exploding
+ulimit -n 2048
+
+
+## Default apps
+
+### Make vim the default editor
 export EDITOR="vim"
 
-# Don't clear the screen after quitting a manual page
-export MANPAGER="less -X"
+### Use ninja for gyp
+export GYP_GENERATORS=ninja
 
-# Larger bash history (allow 32³ entries; default is 500)
+
+## History
+
+### Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth
 
-# Custom prompt
+### Append to the Bash history file, rather than overwriting it
+shopt -s histappend
+
+### Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+
+## Pathnames and commands
+
+### Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob
+
+### The pattern "**" used in a pathname expansion context will
+### match all files and zero or more directories and subdirectories.
+shopt -s globstar
+
+### Autocorrect typos in path names when using `cd`
+shopt -s cdspell
+
+### enable programmable completion features
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+
+## Visual stuff
+
+### Custom prompt
 export PS1="\u@${HOSTNAME%%.*} \w 👍  "
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~} ${HOSTNAME%%.*}\007"'
 
-# Use ninja
-export GYP_GENERATORS=ninja
+### Colors in CLI
+# define colors
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
 
-# Vagrant dir
-export VAGRANT_CWD=~/gh/vagrant
+### check the window size after each command and, if necessary,
+### update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
-# Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob
 
-# Append to the Bash history file, rather than overwriting it
-shopt -s histappend
+## Launch/prepare stuff
 
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell
+### thefuck
+eval "$(thefuck --alias)"
 
-# Increase number of processes to 2048
-# sometimes stops node from exploding
-ulimit -n 2048
+### chruby
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
 
-# Ruby
-eval "$(rbenv init -)"
+### dev
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh

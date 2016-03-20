@@ -1,23 +1,36 @@
 {
 	"auto_upgrade_last_run": null,
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
 	"installed_packages":
 	[
+		"Alignment",
+		"AutoFileName",
+		"Better CoffeeScript",
+		"BracketHighlighter",
 		"Color Highlighter",
 		"Emmet",
 		"FileDiffs",
 		"GitGutter",
+		"GitGutter-Edge",
+		"GitHubinator",
 		"Google Spell Check",
 		"Indent XML",
 		"MarkdownEditing",
 		"Origami",
 		"Package Control",
 		"Prefixr",
+		"Pretty JSON",
+		"Sass",
+		"Select Quoted",
 		"SideBarEnhancements",
 		"StringEncode",
 		"SublimeLinter",
+		"SublimeLinter-contrib-scss-lint",
+		"SublimeLinter-jscs",
+		"SummitLinter",
 		"Theme - Aqua",
 		"WordCount",
 		"Xdebug Client"

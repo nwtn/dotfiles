@@ -1,0 +1,44 @@
+# Docs: https://github.com/toy/image_optim
+
+# Notes
+#
+# The defaults have been known to change, so we’re specifying *all the options*.
+#
+# 1: https://en.wikipedia.org/wiki/Nice_(Unix)
+# 2: defaults to number of processors
+# 3: whoever is creating the assets should choose a quality they’re happy with
+
+nice: 10                    # 1
+# threads: 1                # 2
+verbose: false
+pack: true
+skip_missing_workers: true
+allow_lossy: false          # 3
+advpng:
+  level: 4
+gifsicle:
+  interlace: false
+  level: 3
+  careful: true
+jpegoptim:
+  strip: all
+  max_quality: 100          # 3
+jpegrecompress:
+  quality: 3
+jpegtran:
+  copy_chunks: false
+  progressive: false
+  jpegrescan: true
+optipng:
+  level: 7
+  interlace: false
+  strip: true
+pngcrush:
+  chunks: alla
+  fix: true
+  brute: true
+  blacken: true
+pngout: false
+pngquant:
+  quality: 100..100         # 3
+  speed: 1

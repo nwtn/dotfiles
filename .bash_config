@@ -81,3 +81,8 @@ source /usr/local/opt/chruby/share/chruby/auto.sh
 
 ### dev
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+### git
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi

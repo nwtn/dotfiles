@@ -269,3 +269,9 @@ function tophat_shopify_app {
   echo 'start server'
   bundle exec rails server
 }
+
+
+## gitwho: see who worked on a file, so I can ping them in PRs
+gitwho() {
+  git log --format="%an" -- "$@" | sort | uniq -c | sort -rn
+}

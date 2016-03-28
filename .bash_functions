@@ -9,82 +9,62 @@ packup() {
   sudo softwareupdate --install --all
 
   # ruby gems
-  printf "\n\n~~Ruby Gems 2.1~~\n"
-  chruby 2.1
+  printf "\n\n~~Ruby Gems~~\n"
 
-  printf "\n~gem update~\n"
+  printf "\n~2.1.6~\n"
+  chruby 2.1.6
   sudo gem update
-
-  printf "\n~gem cleanup~\n"
   sudo gem cleanup
-
-  printf "\n~gem update~\n"
   sudo gem update
-
   if [ "$1" = "local" ]; then
-    printf "\n\n~~Bundler~~\n"
-
-    printf "\n~bundle install~\n"
     bundle install
   fi
 
-  printf "\n\n~~Ruby Gems 2.2~~\n"
-  chruby 2.2
-
-  printf "\n~gem update~\n"
+  printf "\n~2.2.3p172-shopify~\n"
+  chruby 2.2.3p172-shopify
   sudo gem update
-
-  printf "\n~gem cleanup~\n"
   sudo gem cleanup
-
-  printf "\n~gem update~\n"
   sudo gem update
-
   if [ "$1" = "local" ]; then
-    printf "\n\n~~Bundler~~\n"
-
-    printf "\n~bundle install~\n"
     bundle install
   fi
 
-
-  printf "\n\n~~Ruby Gems 2.3~~\n"
-  chruby 2.3
-
-  printf "\n~gem update~\n"
+  printf "\n\n~ruby-2.1.8~\n"
+  chruby ruby-2.1.8
   sudo gem update
-
-  printf "\n~gem cleanup~\n"
   sudo gem cleanup
-
-  printf "\n~gem update~\n"
   sudo gem update
-
   if [ "$1" = "local" ]; then
-    printf "\n\n~~Bundler~~\n"
+    bundle install
+  fi
 
-    printf "\n~bundle install~\n"
+  printf "\n\n~ruby-2.2.4~\n"
+  chruby ruby-2.2.4
+  sudo gem update
+  sudo gem cleanup
+  sudo gem update
+  if [ "$1" = "local" ]; then
+    bundle install
+  fi
+
+  printf "\n\n~ruby-2.3.0~\n"
+  chruby ruby-2.3.0
+  sudo gem update
+  sudo gem cleanup
+  sudo gem update
+  if [ "$1" = "local" ]; then
     bundle install
   fi
 
   # homebrew
   printf "\n\n~~Homebrew~~\n"
-
-  printf "\n~brew update~\n"
   brew update
-
-  printf "\n~brew upgrade~\n"
   brew upgrade --all
-
-  printf "\n~brew cleanup~\n"
   brew cleanup
-
-  printf "\n~brew prune~\n"
   brew prune
 
   # node
   printf "\n\n~~Node~~\n"
-
   npm update -g
   if [ "$1" = "local" ]; then
     npm update
@@ -92,46 +72,26 @@ packup() {
 
   # python
   printf "\n\n~~Python 2~~\n"
-
-  printf "\n~pip upgrade~\n"
   pip install --upgrade pip setuptools
-
-  printf "\n~pip install~\n"
   pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
-
-  printf "\n~brew linkapps~\n"
   brew linkapps python
 
   printf "\n\n~~Python 3~~\n"
-
-  printf "\n~pip upgrade~\n"
   pip3 install --upgrade pip setuptools
-
-  printf "\n~pip install~\n"
   pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U
-
-  printf "\n~brew linkapps~\n"
   brew linkapps python3
 
   # composer
   printf "\n\n~~Composer~~\n"
-
-  printf "\n~composer self-update~\n"
   composer self-update
-
   if [ "$1" = "local" ]; then
-    printf "\n~composer update~\n"
     composer update
   fi
 
   # bower
   if [ "$1" = "local" ]; then
     printf "\n\n~~Bower~~\n"
-
-    printf "\n~bower prune~\n"
     bower prune
-
-    printf "\n~bower update~\n"
     bower update
   fi
 

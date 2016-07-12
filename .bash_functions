@@ -29,8 +29,8 @@ packup() {
     bundle install
   fi
 
-  printf "\n\n~ruby-2.1.8~\n"
-  chruby ruby-2.1.8
+  printf "\n\n~2.3.0~\n"
+  chruby 2.3.0
   sudo gem update
   sudo gem cleanup
   sudo gem update
@@ -38,17 +38,8 @@ packup() {
     bundle install
   fi
 
-  printf "\n\n~ruby-2.2.4~\n"
-  chruby ruby-2.2.4
-  sudo gem update
-  sudo gem cleanup
-  sudo gem update
-  if [ "$1" = "local" ]; then
-    bundle install
-  fi
-
-  printf "\n\n~ruby-2.3.0~\n"
-  chruby ruby-2.3.0
+  printf "\n\n~2.3.1~\n"
+  chruby 2.3.1
   sudo gem update
   sudo gem cleanup
   sudo gem update
@@ -68,31 +59,6 @@ packup() {
   npm update -g
   if [ "$1" = "local" ]; then
     npm update
-  fi
-
-  # python
-  printf "\n\n~~Python 2~~\n"
-  pip install --upgrade pip setuptools
-  pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
-  brew linkapps python
-
-  printf "\n\n~~Python 3~~\n"
-  pip3 install --upgrade pip setuptools
-  pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U
-  brew linkapps python3
-
-  # composer
-  printf "\n\n~~Composer~~\n"
-  composer self-update
-  if [ "$1" = "local" ]; then
-    composer update
-  fi
-
-  # bower
-  if [ "$1" = "local" ]; then
-    printf "\n\n~~Bower~~\n"
-    bower prune
-    bower update
   fi
 
   # xcode command line tools

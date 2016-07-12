@@ -235,3 +235,12 @@ function tophat_shopify_app {
 gitwho() {
   git log --format="%an" -- "$@" | sort | uniq -c | sort -rn
 }
+
+
+## blowupshop: destroy and rebuild the database
+blowupshop() {
+  git checkout master
+  dev down
+  dev reset-data
+  updaterepo
+}

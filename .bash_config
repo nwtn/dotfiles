@@ -76,8 +76,8 @@ shopt -s checkwinsize
 eval "$(thefuck --alias)"
 
 ### chruby
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+# source /usr/local/share/chruby/chruby.sh
+# source /usr/local/opt/chruby/share/chruby/auto.sh
 
 ### dev
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh

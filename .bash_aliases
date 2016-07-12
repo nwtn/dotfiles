@@ -13,6 +13,7 @@ alias aliases="c ~/.dotfiles/bash/bash_aliases"
 
 ## apps
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC -I rc'
+alias date='gdate'
 
 
 ## emulators

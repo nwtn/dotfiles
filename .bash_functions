@@ -77,12 +77,6 @@ packup() {
 ## update repo
 updaterepo() {
   git checkout master
-  brew update
-  brew upgrade --all
-  brew cleanup
-  brew prune
-  npm update -g
-  npm update
   dev update
   git pull
   dev up

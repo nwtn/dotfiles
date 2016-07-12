@@ -17,8 +17,8 @@ alias date='gdate'
 
 
 ## emulators
-alias iphone='xcrun instruments -w "iPhone 6s (9.2) [968148E1-ED18-4AD4-ADE0-E1D0FF583E0E]"'
-alias ipad='xcrun instruments -w "iPad Air 2 (9.0) [803FB64B-40A6-413F-8CA4-FA4883138F17]"'
+alias iphone='xcrun instruments -w "iPhone 5s (9.3) [0038E6B9-3606-4E01-9FC6-D57968CCADBC]" &> /dev/null'
+alias ipad='xcrun instruments -w "iPad Air 2 (9.3) [7020970B-1322-417E-B2FB-5A0D1B9A2283]" &> /dev/null'
 
 
 ## grep
